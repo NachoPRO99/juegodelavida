@@ -1,11 +1,12 @@
 
 import copy, random, sys, time
 
-# Constantes
-ANCHO = 79   # Ancho de la cuadrícula
-ALTO = 20  # Alto de la cuadrícula
 
-VIVO = 'O'  # Carácter para la celda viva
+# Constantes
+ANCHO = int(input("Dime el ancho de la cuadricula: "))   # Ancho de la cuadrícula
+ALTO = int(input("Dime el alto de la cuadricula: "))  # Alto de la cuadrícula
+
+VIVO = str(input("Dime que letra quieres usar: "))  # Carácter para la celda viva
 MUERTO = ' '   # Carácter para la celda muerta
 
 # Las variables celulas y siguientesCelulas son diccionarios que contienen
@@ -65,8 +66,7 @@ while True:  # bucle principal del programa
 
             # Basamos el valor de la nueva generación en función
             # de los valores actuales
-            if celulas[(x, y)] == VIVO and (numVecinasVivas == 2
-                                            or numVecinasVivas == 3):
+            if celulas[(x, y)] == VIVO and (numVecinasVivas >= 2):
                     # Cálulas vivas con 2 o 3 vecinas vivas permanecen vivas
                     siguientesCelulas[(x, y)] = VIVO
             elif celulas[(x, y)] == MUERTO and numVecinasVivas == 3:
